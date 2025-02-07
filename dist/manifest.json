@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "Voice Assistant Extension",
+  "version": "1.0",
+  "description": "A voice-enabled AI assistant using ASR, TTS, and LLM capabilities",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "tabs"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "js/background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "js": ["js/content.js"],
+      "css": ["css/content.css"]
+    }
+  ],
+  "host_permissions": [
+    "http://*/*",
+    "https://*/*"
+  ]
+}

@@ -1,0 +1,1 @@
+chrome.runtime.onInstalled.addListener((()=>{console.log("Extension installed")})),chrome.tabs.onUpdated.addListener(((e,t,n)=>{"complete"===t.status&&n.url&&chrome.scripting.executeScript({target:{tabId:e},files:["js/content.js"]})}));
